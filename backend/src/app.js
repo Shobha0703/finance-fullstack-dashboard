@@ -5,7 +5,13 @@ const rateLimit = require('express-rate-limit');
 const { errorHandler } = require('./utils/errorHandler');
 
 const app = express();
-app.use(cors());
+app.use(cors({
+  origin: [
+    'https://finance-dashboard-api-gqr2.onrender.com',  // your vercel URL
+    'http://localhost:3000'                   // keep local dev working
+  ],
+  credentials: true
+}));
 app.use(express.json());
 app.use(morgan('dev'));
 app.use(rateLimit({ windowMs: 15*60*1000, max: 200, standardHeaders: true, legacyHeaders: false }));

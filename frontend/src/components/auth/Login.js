@@ -21,6 +21,8 @@ export default function Login() {
     try {
       const data = await api.login(form);
       login(data.token, data.user);
+    // login(data.data.token, data.data.user);
+    // console.log("LOGIN RESPONSE:", data);
       navigate(data.user.role === 'viewer' ? '/records' : '/dashboard');
     } catch (err) {
       setError(err.message || 'Login failed');
