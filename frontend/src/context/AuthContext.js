@@ -2,6 +2,8 @@ import React, { createContext, useContext, useState, useEffect } from 'react';
 
 const AuthContext = createContext(null);
 
+const BASE = process.env.REACT_APP_API_URL || '/api';
+
 export function AuthProvider({ children }) {
   const [user, setUser]   = useState(null);
   const [token, setToken] = useState(() => localStorage.getItem('token'));
@@ -9,7 +11,7 @@ export function AuthProvider({ children }) {
 
   useEffect(() => {
     if (token) {
-      fetch('/api/auth/me', { headers: { Authorization: `Bearer ${token}` } })
+      fetch(`${BASE}/auth/me`, { headers: { Authorization: `Bearer ${token}` } })
         .then(r => r.ok ? r.json() : Promise.reject())
         .then(data => setUser(data.user))
         .catch(() => { localStorage.removeItem('token'); setToken(null); })
