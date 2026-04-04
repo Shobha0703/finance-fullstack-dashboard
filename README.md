@@ -208,13 +208,5 @@ REACT_APP_API_URL=https://your-backend-url.onrender.com/api
 4. Deploy
 
 ---
-
-## 🗄️ Database
-
-SQLite database with two tables:
-
-**users** — id, name, email, password (hashed), role, status, created_at, updated_at
-
-**records** — id, amount, type, category, date, notes, created_by, deleted_at (soft delete), created_at, updated_at
-
-Database file is created automatically on first server start. No setup required.
+## 👨‍💻 Author
+**Shobha Goswami**
