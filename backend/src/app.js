@@ -7,8 +7,8 @@ const { errorHandler } = require('./utils/errorHandler');
 const app = express();
 app.use(cors({
   origin: [
-    'https://finance-fullstack-dashboard.vercel.app/',  // your vercel URL
-    'http://localhost:3000'                   // keep local dev working
+    'https://finance-fullstack-dashboard.vercel.app',
+    'http://localhost:3000'
   ],
   credentials: true
 }));
